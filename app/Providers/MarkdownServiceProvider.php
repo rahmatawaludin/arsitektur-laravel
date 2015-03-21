@@ -24,8 +24,8 @@ class MarkdownServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->singleton('markdown', function() {
-			return $this->markdown;
+		$this->app->bind('markdown', function() {
+			return new CommonMarkConverter;
 		});
 
 		$this->app->bind('apa itu laravel?', function() {
